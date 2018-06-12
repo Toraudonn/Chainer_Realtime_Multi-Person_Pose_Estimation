@@ -11,6 +11,7 @@ from chainer import cuda, serializers, functions as F
 from entity import params, JointType
 from models.CocoPoseNet import CocoPoseNet
 
+from pprint import pprint
 
 class PoseDetector(object):
     def __init__(self, arch=None, weights_file=None, model=None, device=-1, precise=False):
@@ -564,6 +565,8 @@ if __name__ == '__main__':
     chainer.config.enable_backprop = False
     chainer.config.train = False
 
+    chainer.config.show()
+
     # load model
     pose_detector = PoseDetector(args.arch, args.weights, device=args.gpu, precise=args.precise)
 
@@ -571,7 +574,10 @@ if __name__ == '__main__':
     img = cv2.imread(args.img)
 
     # inference
-    poses, _ = pose_detector(img)
+    poses, scores = pose_detector(img)
+
+    print(img.shape[:2])
+    pprint(poses)
 
     # draw and save image
     img = draw_person_pose(img, poses)

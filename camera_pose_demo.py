@@ -2,6 +2,7 @@ import cv2
 import argparse
 import chainer
 from pose_detector import PoseDetector, draw_person_pose
+from pprint import pprint
 
 chainer.using_config('enable_backprop', False)
 
@@ -28,6 +29,13 @@ if __name__ == '__main__':
             break
 
         person_pose_array, _ = pose_detector(img)
+        
+        # show pose array
+        pprint(person_pose_array)
+
+        # addWeighted(): sum of two arrays
+        # inputs: src1, alpha, src2, beta, gamma (bias)
+        # dst = src1*alpha + src2*beta + gamma
         res_img = cv2.addWeighted(img, 0.6, draw_person_pose(img, person_pose_array), 0.4, 0)
         cv2.imshow("result", res_img)
         cv2.waitKey(1)
