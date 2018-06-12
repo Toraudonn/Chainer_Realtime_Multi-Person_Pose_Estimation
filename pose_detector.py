@@ -553,6 +553,7 @@ def draw_person_pose(orig_img, poses):
                 cv2.circle(canvas, (x, y), 3, color, -1)
     return canvas
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pose detector')
     parser.add_argument('arch', choices=params['archs'].keys(), default='posenet', help='Model architecture')
