@@ -14,7 +14,7 @@ if __name__ == '__main__':
     # load model
     cam_id = args.camera
     pose_detector = PoseDetector("posenet", "models/coco_posenet.npz", device=args.gpu)
-
+    
     cap = cv2.VideoCapture(cam_id)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)

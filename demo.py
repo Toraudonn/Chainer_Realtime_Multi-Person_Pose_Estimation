@@ -11,7 +11,7 @@ chainer.using_config('enable_backprop', False)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pose detector')
     parser.add_argument('--img', help='image file path')
-    parser.add_argument('--gpu', '-g', type=int, default=-1, help='GPU ID (negative value indicates CPU)')
+    parser.add_argument('--gpu', '-g', type=int, default=0, help='GPU ID (negative value indicates CPU)')
     args = parser.parse_args()
 
     # load model
