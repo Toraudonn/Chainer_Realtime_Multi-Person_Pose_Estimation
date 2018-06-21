@@ -31,7 +31,7 @@ if __name__ == '__main__':
         person_pose_array, _ = pose_detector(img)
         
         # show pose array
-        pprint(person_pose_array)
+        # pprint(person_pose_array)
 
         # addWeighted(): sum of two arrays
         # inputs: src1, alpha, src2, beta, gamma (bias)
