@@ -8,10 +8,7 @@ from scipy.ndimage.filters import gaussian_filter
 import chainer
 from chainer import cuda, serializers, functions as F
 
-from entity import params, JointType
-from models.CocoPoseNet import CocoPoseNet
-
-from pprint import pprint
+from .entity import params, JointType
 
 class PoseDetector(object):
     def __init__(self, arch=None, weights_file=None, model=None, device=-1, precise=False):
